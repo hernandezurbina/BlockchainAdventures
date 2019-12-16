@@ -80,5 +80,12 @@ def get_chain():
                 'length': len(blockchain.chain)}
     return jsonify(response), 200
 
+## checking chain validity
+@app.route('/check_chain', methods=['GET'])
+def check_chain():
+    response = {'is_chain_valid': blockchain.is_chain_valid(blockchain.chain)}
+    return jsonify(response), 200
+
+
 ## running app
 app.run(host='0.0.0.0', port=5000)
