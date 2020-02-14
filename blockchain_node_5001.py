@@ -75,7 +75,7 @@ class Blockchain:
         longest_chain = None
         max_length = len(self.chain)
         for node in network:
-            response = requests.get('http://{}/get_chain'.format(node))
+            response = requests.get("http://{}/get_chain".format(node))
             if response.status_code == 200:
                 length = response.json()['length']
                 chain = response.json()['chain']
@@ -170,4 +170,4 @@ def replace_chain():
     return jsonify(response), 200
 
 ## running app
-app.run(host='0.0.0.0', port=5000)
+app.run(host='0.0.0.0', port=5001)
